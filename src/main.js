@@ -604,6 +604,43 @@ function initHeroAnimations() {
       scrub: true,
     }
   });
+
+  // Smooth scroll transition from pure white into rich aromatic chai colour
+  gsap.to('#hero-title, #hero-title .char', {
+    color: '#6B3F1D',
+    textShadow: '0 0 35px rgba(250, 250, 248, 0.95), 0 2px 10px rgba(250, 250, 248, 0.9)',
+    ease: 'power1.out',
+    scrollTrigger: {
+      trigger: '#hero',
+      start: 'top top',
+      end: '65% top',
+      scrub: 0.5,
+    }
+  });
+
+  gsap.to('.hero-tagline', {
+    color: '#2B2320',
+    textShadow: '0 0 25px rgba(250, 250, 248, 0.95), 0 1px 6px rgba(250, 250, 248, 0.9)',
+    ease: 'power1.out',
+    scrollTrigger: {
+      trigger: '#hero',
+      start: 'top top',
+      end: '65% top',
+      scrub: 0.5,
+    }
+  });
+
+  gsap.to('.hero-kicker', {
+    color: '#C23B22',
+    textShadow: '0 0 16px rgba(250, 250, 248, 0.9)',
+    ease: 'power1.out',
+    scrollTrigger: {
+      trigger: '#hero',
+      start: 'top top',
+      end: '65% top',
+      scrub: 0.5,
+    }
+  });
 }
 
 /* ==========================================================================
