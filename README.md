@@ -2,6 +2,8 @@
 
 > An artisanal daylight luxury interactive website featuring 60FPS frame-by-frame scroll scrubbing, zero-gravity food deconstruction, and seamless zero-edge aesthetics.
 
+**Live Demo**: [https://mrchay.vercel.app](https://mrchay.vercel.app) (Mirror: [https://mschay.vercel.app](https://mschay.vercel.app))
+
 ---
 
 ## ✨ Features
