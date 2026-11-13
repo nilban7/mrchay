@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chai Theory — Built By Ruturaj</title>
+  
+  <!-- Typography: Fraunces & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/src/styles/main.css" />
+</head>
+<body class="bg-[#FAFAF8] text-[#2B2320]">
+
+  <!-- Noise Canvas Overlay (2-3% grain) -->
+  <canvas id="noise-canvas" class="noise-overlay"></canvas>
+
+  <!-- Three.js Ambient Particle & Spice Canvas -->
+  <canvas id="three-canvas" class="three-overlay"></canvas>
+
+  <!-- Custom Ring Cursor -->
+  <div id="cursor-dot" class="cursor-dot"></div>
+  <div id="cursor-ring" class="cursor-ring"></div>
+
+  <!-- A. Preloader (<1.5s) -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-title" id="preloader-title">
+        <span class="brand-text">CHAI THEORY</span>
+        <span class="sub-text">Built By Ruturaj</span>
+      </div>
+      <div class="progress-track">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+      <div class="preloader-asset-status" id="preloader-status">Preloading High-Key Frame Canvas...</div>
+    </div>
+  </div>
+
+  <!-- Main Smooth Scroll Wrapper -->
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <!-- Navigation Bar -->
+      <nav class="site-nav">
+        <div class="nav-container">
+          <a href="#" class="nav-brand">
+            <span class="brand-name">CHAI THEORY</span>
+            <span class="brand-tag">BUILT BY RUTURAJ</span>
+          </a>
+          <div class="nav-links">
+            <a href="#coffee" class="nav-link">Our Coffee</a>
+            <a href="#what-we-serve" class="nav-link">What We Serve</a>
+            <a href="#sweets" class="nav-link">Sweets</a>
+            <a href="#cold-drinks" class="nav-link">Cold & Fusion</a>
+            <a href="#gallery" class="nav-link">Gallery</a>
+          </div>
+          <a href="#reserve" class="nav-cta magnetic-btn">
+            <span>Reserve Table</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- B. Hero Section -->
+      <section id="hero" class="hero-section">
+        <div class="hero-video-wrapper">
+          <video 
+            id="hero-video" 
+            class="hero-video" 
+            autoplay 
+            muted 
+            loop 
+            playsinline 
+            preload="auto"
+            poster="/assets/photos/img-kulhad-hero.jpg"
+          >
+            <source src="/assets/videos/hero-chai-pour.mp4" type="video/mp4" />
+          </video>
+          <div class="video-placeholder-fallback warm-placeholder">
+            <span>HERO CHAI POUR · HIGH-KEY DAYLIGHT</span>
+          </div>
+          <div class="hero-gradient-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-kicker-wrap">
+            <span class="hero-kicker">MASALA CHAI · FILTER COFFEE · STREET FOOD</span>
+          </div>
+          <h1 class="hero-title" id="hero-title">
+            <span class="char-line">CHAI</span>
+            <span class="char-line">THEORY</span>
+          </h1>
+          <p class="hero-tagline">
+            An artisanal daylight sanctuary crafted for slow mornings, high-pressure decoctions, and elevated street gastronomy.
+          </p>
+
+          <div class="scroll-indicator">
+            <span class="scroll-text">EXPLORE THE SCROLL</span>
+            <div class="scroll-pill">
+              <div class="scroll-dot"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Calming Contrast Beat before the Exploded Thali payoff -->
+      <section class="calming-beat-section">
+        <div class="calming-container">
+          <span class="beat-label">PHILOSOPHY</span>
+          <h2 class="beat-headline">
+            Where heritage clay, high-pressure brass, and geometric precision converge on daylight tables.
+          </h2>
+        </div>
+      </section>
+
+      <!-- C. "Our Coffee" — Filter Coffee Showcase -->
+      <section id="coffee" class="coffee-section">
+        <div class="section-container split-layout">
+          <div class="split-col text-col">
+            <span class="section-badge badge-coffee">OUR COFFEE</span>
+            <h2 class="section-title title-coffee">
+              The 1-Meter Aeration Pour.
+            </h2>
+            <p class="section-desc">
+              Extracted through traditional brass filters over four patient hours. Froth builds continuously between dabarah and tumbler until micro-foam blooms with caramel sweetness and roasted chicory depth.
+            </p>
+
+            <div class="coffee-stats">
+              <div class="stat-item">
+                <span class="stat-number">4 hrs</span>
+                <span class="stat-label">Slow-brewed</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">South Indian Style</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-number">2026</span>
+                <span class="stat-label">Since Inception</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="split-col media-col">
+            <div class="media-card-frame">
+              <!-- Frame-by-frame Canvas for buttery interactive scrub or fluid loop -->
+              <canvas id="coffee-canvas" class="scrub-canvas media-canvas"></canvas>
+              <div class="media-badge">BRASS AERATION · 85°C · 192 FRAMES</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- D. "What We Serve" — THE EXPLODED SCROLL MOMENT (HERO INTERACTION) -->
+      <section id="what-we-serve" class="pinned-scrub-section thali-scrub-section">
+        <div class="scrub-header-overlay">
+          <span class="section-badge badge-thali">WHAT WE SERVE</span>
+          <h2 class="section-title title-thali">The Grand Thali Architecture.</h2>
+          <p class="scrub-hint">Scroll down to explode · Scroll up to reassemble</p>
+        </div>
+
+        <div class="scrub-canvas-container">
+          <!-- 60FPS High-DPI Canvas for 192 Frame Sequence -->
+          <canvas id="thali-canvas" class="scrub-canvas"></canvas>
+
+          <!-- Pop Labels in Saffron Orange (#E38A2C) -->
+          <div class="pop-label-tag label-dosa" id="label-dosa">
+            <span class="tag-dot"></span>
+            <span class="tag-text">MASALA DOSA</span>
+          </div>
+          <div class="pop-label-tag label-sambar" id="label-sambar">
+            <span class="tag-dot"></span>
+            <span class="tag-text">SAMBAR</span>
+          </div>
+          <div class="pop-label-tag label-vada" id="label-vada">
+            <span class="tag-dot"></span>
+            <span class="tag-text">MEDU VADA</span>
+          </div>
+          <div class="pop-label-tag label-chutney" id="label-chutney">
+            <span class="tag-dot"></span>
+            <span class="tag-text">COCONUT CHUTNEY</span>
+          </div>
+        </div>
+
+        <div class="scrub-progress-indicator">
+          <div class="scrub-track">
+            <div class="scrub-fill" id="thali-progress-fill"></div>
+          </div>
+          <span class="scrub-status-label" id="thali-status-label">ASSEMBLED THALI (0%)</span>
+        </div>
+      </section>
+
+      <!-- D2. Pinned Scrub Treatment for Exploded Samosa directly after -->
+      <section id="samosa-scrub" class="pinned-scrub-section samosa-scrub-section">
+        <div class="scrub-header-overlay">
+          <span class="section-badge badge-samosa">STREET FOOD, ELEVATED</span>
+          <h2 class="section-title title-samosa">Zero-Gravity Geometry.</h2>
+          <p class="scrub-hint">Scroll down to explode · Scroll up to reassemble</p>
+        </div>
+
+        <div class="scrub-canvas-container">
+          <!-- 60FPS High-DPI Canvas for 192 Frame Sequence -->
+          <canvas id="samosa-canvas" class="scrub-canvas"></canvas>
+
+          <!-- Pop Labels in Chili Red (#C23B22) -->
+          <div class="pop-label-tag label-pastry" id="label-pastry">
+            <span class="tag-dot red-dot"></span>
+            <span class="tag-text">FLAKY AJWAIN CRUST</span>
+          </div>
+          <div class="pop-label-tag label-potatoes" id="label-potatoes">
+            <span class="tag-dot red-dot"></span>
+            <span class="tag-text">SPICED MARAWARI POTATO</span>
+          </div>
+          <div class="pop-label-tag label-cumin" id="label-cumin">
+            <span class="tag-dot red-dot"></span>
+            <span class="tag-text">TOASTED WHOLE CUMIN</span>
+          </div>
+        </div>
+
+        <div class="scrub-progress-indicator">
+          <div class="scrub-track">
+            <div class="scrub-fill red-fill" id="samosa-progress-fill"></div>
+          </div>
+          <span class="scrub-status-label" id="samosa-status-label">INTACT CRISP GEOMETRY (0%)</span>
+        </div>
+      </section>
+
+      <!-- E. "Our Sweets" (Image with 3JS / Shader-grade Glaze Effects) -->
+      <section id="sweets" class="sweets-section">
+        <div class="section-container">
+          <div class="sweets-header">
+            <span class="section-badge badge-sweets">HANDCRAFTED MITHAI</span>
+            <h2 class="section-title title-sweets">Our Sweets.</h2>
+            <p class="section-desc">
+              Immersed in saffron-kissed cane syrups, laced with wild cardamom and crowned with silver foil leaf. Pure high-key indulgence.
+            </p>
+          </div>
+
+          <!-- Sweets Hero Glaze Canvas Showcase -->
+          <div class="sweets-macro-stage" id="sweets-stage">
+            <div class="macro-image-container">
+              <img 
+                src="/assets/photos/img-jalebi.jpg" 
+                alt="Glistening Indian Sweets" 
+                class="macro-glaze-img" 
+                id="sweets-macro-img"
+              />
+              <div class="syrup-glaze-shimmer"></div>
+              <div class="floating-pistachio p1"></div>
+              <div class="floating-pistachio p2"></div>
+              <div class="floating-pistachio p3"></div>
+            </div>
+
+            <!-- Horizontal scrub-linked card gallery -->
+            <div class="sweets-cards-grid">
+              <div class="sweet-card magnetic-card">
+                <div class="sweet-thumb-wrap">
+                  <img src="/assets/photos/img-jalebi.jpg" alt="Golden Jalebi" class="sweet-thumb" />
+                  <span class="sweet-price">₹120</span>
+                </div>
+                <div class="sweet-info">
+                  <h3>Saffron Spiral Jalebi</h3>
+                  <p>Crispy fermented batter, soaked warm in saffron cardamom reduction.</p>
+                </div>
+              </div>
+
+              <div class="sweet-card magnetic-card">
+                <div class="sweet-thumb-wrap">
+                  <img src="/assets/photos/img-gulab-jamun.jpg" alt="Rose Gulab Jamun" class="sweet-thumb" />
+                  <span class="sweet-price">₹140</span>
+                </div>
+                <div class="sweet-info">
+                  <h3>Mawa Gulab Jamun</h3>
+                  <p>Slow-fried condensed milk dumplings infused with Damask rose water.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- F. "Cold & Fusion Drinks" -->
+      <section id="cold-drinks" class="cold-drinks-section">
+        <div class="section-container">
+          <div class="cold-header">
+            <span class="section-badge badge-fusion">TEMPERATE & CHILLED</span>
+            <h2 class="section-title title-cold">Cold & Fusion Drinks.</h2>
+          </div>
+
+          <div class="fusion-split-cards">
+            <!-- Mango Lassi Card -->
+            <div class="fusion-card card-mango">
+              <div class="fusion-content">
+                <span class="fusion-accent-label label-mango">ALPHONSO PULP</span>
+                <h3 class="fusion-title title-mango">MANGO LASSI</h3>
+                <p class="fusion-desc">
+                  Thick hung curd whisked with sun-ripened Ratnagiri mangoes, saffron strands, and roasted pistachio slivers.
+                </p>
+                <div class="fusion-tag-list">
+                  <span>Velvety Curd</span>
+                  <span>Chilled</span>
+                  <span>Saffron Bloom</span>
+                </div>
+              </div>
+              <div class="fusion-media">
+                <img src="/assets/photos/img-mango-lassi.jpg" alt="Mango Lassi" class="fusion-photo" />
+              </div>
+            </div>
+
+            <!-- Matcha Chai Fusion Card -->
+            <div class="fusion-card card-matcha">
+              <div class="fusion-content">
+                <span class="fusion-accent-label label-matcha">KYOTO × KOLKATA</span>
+                <h3 class="fusion-title title-matcha">MATCHA CHAI FUSION</h3>
+                <p class="fusion-desc">
+                  First-harvest Uji ceremonial matcha layered precisely over artisanal spiced Assam black tea and oat emulsion.
+                </p>
+                <div class="fusion-tag-list">
+                  <span>Ceremonial Grade</span>
+                  <span>Two-Tone Pour</span>
+                  <span>Botanical Spice</span>
+                </div>
+              </div>
+              <div class="fusion-media">
+                <img src="/assets/photos/img-matcha-latte.jpg" alt="Matcha Chai Fusion" class="fusion-photo" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- G. Ingredient / Texture Gallery (GSAP Horizontal Scroll) -->
+      <section id="gallery" class="gallery-pin-wrapper">
+        <div class="gallery-pin-container" id="gallery-pin">
+          <div class="gallery-intro">
+            <span class="section-badge badge-gallery">ARCHIVE OF SENSES</span>
+            <h2 class="section-title title-gallery">The Visual Taxonomy.</h2>
+            <p>Every raw spice, rolled leaf, and crisp edge captured under natural morning sun.</p>
+          </div>
+
+          <div class="gallery-track" id="gallery-track">
+            <!-- Item 1: Samosa -->
+            <div class="gallery-panel">
+              <div class="panel-inner">
+                <div class="panel-img-wrap">
+                  <img src="/assets/photos/img-samosa.jpg" alt="Samosa" class="gallery-img" />
+                </div>
+                <div class="panel-meta">
+                  <span class="panel-caption">CRISP</span>
+                  <span class="panel-sub">Ajwain infused crust</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2: Pani Puri -->
+            <div class="gallery-panel">
+              <div class="panel-inner">
+                <div class="panel-img-wrap">
+                  <img src="/assets/photos/img-pani-puri.jpg" alt="Pani Puri" class="gallery-img" />
+                </div>
+                <div class="panel-meta">
+                  <span class="panel-caption">BURST</span>
+                  <span class="panel-sub">Mint coriander nectar</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3: Spices Flatlay -->
+            <div class="gallery-panel">
+              <div class="panel-inner">
+                <div class="panel-img-wrap">
+                  <img src="/assets/photos/img-spices-flatlay.jpg" alt="Spices Flatlay" class="gallery-img" />
+                </div>
+                <div class="panel-meta">
+                  <span class="panel-caption">AROMA</span>
+                  <span class="panel-sub">Whole Kerala green pods</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 4: Tea Leaves -->
+            <div class="gallery-panel">
+              <div class="panel-inner">
+                <div class="panel-img-wrap">
+                  <img src="/assets/photos/img-tea-leaves.jpg" alt="Tea Leaves" class="gallery-img" />
+                </div>
+                <div class="panel-meta">
+                  <span class="panel-caption">HARVEST</span>
+                  <span class="panel-sub">CTC & whole leaf orthodox</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 5: Cutting Chai -->
+            <div class="gallery-panel">
+              <div class="panel-inner">
+                <div class="panel-img-wrap">
+                  <img src="/assets/photos/img-cutting-chai.jpg" alt="Cutting Chai" class="gallery-img" />
+                </div>
+                <div class="panel-meta">
+                  <span class="panel-caption">RHYTHM</span>
+                  <span class="panel-sub">The everyday street cadence</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- H. Finale / CTA Section -->
+      <section id="reserve" class="finale-section">
+        <div class="finale-backdrop">
+          <img src="/assets/photos/img-poster.jpg" alt="Cafe Ambiance" class="finale-bg-img" id="finale-bg-img" />
+          <div class="finale-overlay"></div>
+        </div>
+
+        <div class="finale-content">
+          <span class="section-badge badge-cta">SEATINGS & TASTINGS</span>
+          <h2 class="finale-title">
+            Reserve Your Morning Table.
+          </h2>
+          <p class="finale-desc">
+            Limited seatings daily at our daylight counter. Experience freshly pulled South Indian decoction, steaming clay kulhads, and elevated street gastronomy.
+          </p>
+
+          <div class="cta-action-wrap">
+            <a href="#" class="cta-button magnetic-btn">
+              <span class="btn-text">RESERVE YOUR TABLE</span>
+              <span class="btn-fill"></span>
+            </a>
+          </div>
+
+          <!-- Minimal Footer -->
+          <footer class="site-footer">
+            <div class="footer-divider"></div>
+            <div class="footer-row">
+              <span class="footer-brand">CHAI THEORY</span>
+              <span class="footer-credit">Built by Ruturaj | BR</span>
+              <span class="footer-rights">© 2026 All Rights Reserved</span>
+            </div>
+          </footer>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local testing & scratch files
+shots/
+shots_mobile/
+*.cjs
+*.mjs.bak
+
+# Vercel
+.vercel/
